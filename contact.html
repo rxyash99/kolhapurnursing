@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Kolhapur Nursing Bureau</title>
+  <meta name="description" content="Book a nurse or contact Kolhapur Nursing Bureau. Available 24/7 at 090218 54070. Located near Metro Hospital Shahupuri, Bagal Chowk, Kolhapur." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%230a1628'/><text x='50' y='68' text-anchor='middle' font-size='44' font-weight='bold' fill='%23c9a84c' font-family='Georgia'>K</text></svg>" />
+  <style>
+/* === SHARED STYLES === */
+
+  @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 300; font-display: swap; src: url(fonts/dm-sans-300.ttf) format('truetype'); }
+  @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/dm-sans-400.ttf) format('truetype'); }
+  @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/dm-sans-500.ttf) format('truetype'); }
+  @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/dm-sans-600.ttf) format('truetype'); }
+  @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url(fonts/dm-sans-700.ttf) format('truetype'); }
+  @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/playfair-400.ttf) format('truetype'); }
+  @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/playfair-600.ttf) format('truetype'); }
+  @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 700; font-display: swap; src: url(fonts/playfair-700.ttf) format('truetype'); }
+  @font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 400; font-display: swap; src: url(fonts/playfair-400i.ttf) format('truetype'); }
+  @font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 600; font-display: swap; src: url(fonts/playfair-600i.ttf) format('truetype'); }
+  
+/* ============================================================
+   KOLHAPUR NURSING BUREAU — SHARED STYLES
+   ============================================================ */
+
+
+/* ── CSS Variables ── */
+:root {
+  --primary: #0a1628;
+  --primary-light: #102040;
+  --accent: #c9a84c;
+  --accent-light: #e0c070;
+  --accent-dim: rgba(201,168,76,0.15);
+  --surface: #f5f8ff;
+  --surface-dark: #eaeffa;
+  --text: #1a1a2e;
+  --text-muted: #5a6070;
+  --white: #ffffff;
+  --gold-glow: 0 0 20px rgba(201,168,76,0.4);
+  --card-shadow: 0 4px 24px rgba(10,22,40,0.10);
+  --card-shadow-hover: 0 12px 40px rgba(10,22,40,0.18);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.7;
+  cursor: none;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul, ol { list-style: none; }
+
+/* ── Custom Cursor ── */
+#cursor-dot {
+  width: 8px; height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 99999;
+  transform: translate(-50%,-50%);
+  transition: background 0.2s;
+  will-change: transform;
+}
+#cursor-ring {
+  width: 36px; height: 36px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 99998;
+  transform: translate(-50%,-50%);
+  transition: width 0.2s, height 0.2s, border-color 0.2s;
+  will-change: transform;
+}
+body:hover #cursor-ring { opacity: 1; }
+a:hover ~ #cursor-ring,
+button:hover ~ #cursor-ring { width: 48px; height: 48px; border-color: var(--accent-light); }
+
+/* ── Navigation ── */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 2rem;
+  height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
+  background: transparent;
+}
+.navbar.scrolled {
+  background: rgba(10,22,40,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.3);
+}
+.navbar.light {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 16px rgba(10,22,40,0.08);
+}
+.navbar.light .nav-links a { color: var(--primary); }
+.navbar.light .nav-links a::after { background: var(--accent); }
+.navbar.light .nav-brand-text { color: var(--primary); }
+
+.nav-brand {
+  display: flex; align-items: center; gap: 12px;
+  flex-shrink: 0;
+}
+.nav-logo {
+  width: 44px; height: 44px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 1.1rem;
+  color: var(--primary);
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+}
+.nav-brand-text {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--white);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.nav-brand-sub {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  opacity: 0.7;
+  display: block;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex; gap: 2.5rem; align-items: center;
+}
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.9rem; font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  position: relative;
+  transition: color var(--transition);
+  letter-spacing: 0.3px;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0; right: 100%;
+  height: 2px; background: var(--accent);
+  transition: right var(--transition);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after { right: 0; }
+.nav-links a:hover { color: var(--white); }
+.nav-links a.active { color: var(--accent); }
+
+.nav-cta {
+  background: var(--accent);
+  color: var(--primary) !important;
+  padding: 0.55rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  transition: all var(--transition) !important;
+  white-space: nowrap;
+}
+.nav-cta:hover {
+  background: var(--accent-light);
+  transform: scale(1.04);
+  box-shadow: var(--gold-glow);
+}
+.nav-cta::after { display: none !important; }
+
+.hamburger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px;
+  background: none; border: none;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block; width: 26px; height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all var(--transition);
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+.nav-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 999;
+  background: var(--primary);
+  flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 2rem;
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--transition);
+}
+.nav-overlay.open { opacity: 1; pointer-events: all; display: flex; }
+.nav-overlay a {
+  font-family: var(--font-display);
+  font-size: 2rem; color: var(--white);
+  font-weight: 600;
+  transition: color var(--transition);
+}
+.nav-overlay a:hover { color: var(--accent); }
+.nav-overlay .nav-overlay-cta {
+  background: var(--accent); color: var(--primary);
+  padding: 0.8rem 2rem; border-radius: var(--radius-sm);
+  font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+}
+
+/* ── Section Base ── */
+section { padding: 6rem 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.container-wide { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.75rem;
+  display: block;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: var(--primary); line-height: 1.25;
+  margin-bottom: 1rem;
+}
+.section-title em { font-style: italic; color: var(--accent); }
+.section-subtitle {
+  font-size: 1rem; color: var(--text-muted);
+  max-width: 560px; line-height: 1.7;
+}
+.text-center { text-align: center; }
+.text-center .section-subtitle { margin: 0 auto; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; border: none; position: relative; overflow: hidden;
+  transition: all var(--transition);
+  will-change: transform;
+  letter-spacing: 0.3px;
+}
+.btn::after {
+  content: '';
+  position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+.btn:hover::after { left: 150%; }
+.btn:hover { transform: scale(1.04); }
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--primary);
+  box-shadow: 0 4px 16px rgba(201,168,76,0.3);
+}
+.btn-primary:hover {
+  background: var(--accent-light);
+  box-shadow: var(--gold-glow);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.6);
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+.btn-outline-dark {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn-outline-dark:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(10,22,40,0.06);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--accent);
+}
+.card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform var(--transition);
+}
+.card:hover::before { transform: scaleX(1); }
+
+.card-icon {
+  font-size: 2rem; margin-bottom: 1rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px;
+  background: var(--accent-dim);
+  border-radius: var(--radius-sm);
+}
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem; font-weight: 600;
+  color: var(--primary); margin-bottom: 0.4rem;
+}
+.card-text { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ── Scroll Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* Staggered delays */
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+.reveal-d5 { transition-delay: 0.5s; }
+.reveal-d6 { transition-delay: 0.6s; }
+
+/* ── Floating Buttons ── */
+.float-wa {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 900;
+  width: 56px; height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: all var(--transition);
+  animation: waBounce 3s ease-in-out infinite;
+  will-change: transform;
+}
+.float-wa:hover {
+  transform: scale(1.12);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.6);
+  animation: none;
+}
+.float-wa svg { width: 28px; height: 28px; fill: white; }
+
+.float-call {
+  position: fixed; bottom: 2rem; left: 2rem; z-index: 900;
+  background: var(--accent);
+  color: var(--primary);
+  border-radius: 2rem;
+  padding: 0.75rem 1.25rem;
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 700;
+  box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.float-call:hover {
+  background: var(--accent-light);
+  transform: scale(1.04);
+  box-shadow: var(--gold-glow);
+}
+.float-call svg { width: 18px; height: 18px; }
+
+.back-to-top {
+  position: fixed; bottom: 7rem; right: 2rem; z-index: 900;
+  width: 44px; height: 44px;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(10,22,40,0.3);
+  cursor: pointer; border: none;
+  opacity: 0; pointer-events: none;
+  transition: all var(--transition);
+  font-size: 1.1rem;
+}
+.back-to-top.visible { opacity: 1; pointer-events: all; }
+.back-to-top:hover { background: var(--accent); color: var(--primary); transform: translateY(-3px); }
+
+/* ── WhatsApp Bounce ── */
+@keyframes waBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ── Pulse Animation ── */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  70% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+.pulse-btn { position: relative; }
+.pulse-btn::before, .pulse-btn::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  border: 2px solid var(--accent);
+  animation: pulse-ring 2s ease-out infinite;
+  pointer-events: none;
+}
+.pulse-btn::after { animation-delay: 0.6s; }
+
+/* ── Page Hero (non-home) ── */
+.page-hero {
+  background: linear-gradient(135deg, var(--primary) 0%, #162a4a 100%);
+  padding: 10rem 0 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%);
+}
+.page-hero-label {
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.75rem;
+  display: block;
+}
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--white); line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.page-hero p {
+  font-size: 1rem; color: rgba(255,255,255,0.7);
+  max-width: 500px; margin: 0 auto;
+}
+.page-hero-breadcrumb {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.5rem; margin-top: 2rem;
+  font-size: 0.85rem; color: rgba(255,255,255,0.5);
+}
+.page-hero-breadcrumb a { color: var(--accent); }
+.page-hero-breadcrumb span { color: rgba(255,255,255,0.3); }
+
+/* ── Footer ── */
+.footer {
+  background: var(--primary);
+  color: rgba(255,255,255,0.8);
+  padding: 4rem 0 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.footer-brand { }
+.footer-brand .nav-logo { width: 52px; height: 52px; font-size: 1.2rem; margin-bottom: 1rem; }
+.footer-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem; color: var(--white); font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.footer-tagline { font-size: 0.85rem; color: var(--accent); font-style: italic; margin-bottom: 1rem; }
+.footer-desc { font-size: 0.875rem; line-height: 1.7; color: rgba(255,255,255,0.6); }
+
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.25rem;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col ul a {
+  font-size: 0.875rem; color: rgba(255,255,255,0.6);
+  transition: color var(--transition);
+}
+.footer-col ul a:hover { color: var(--accent); }
+
+.footer-info p {
+  font-size: 0.875rem; color: rgba(255,255,255,0.6);
+  line-height: 1.7; margin-bottom: 0.5rem;
+  display: flex; gap: 0.5rem;
+}
+.footer-info p strong { color: rgba(255,255,255,0.85); flex-shrink: 0; }
+.footer-phone {
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--accent) !important;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.8rem; color: rgba(255,255,255,0.4);
+}
+.footer-bottom span { color: var(--accent); }
+
+/* ── Grid Utilities ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.75rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 1.5rem; }
+
+/* ── Divider ── */
+.divider { width: 60px; height: 3px; background: var(--accent); margin: 1.25rem 0; border-radius: 2px; }
+.divider-center { margin: 1.25rem auto; }
+
+/* ── Highlight Badge ── */
+.badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  background: var(--accent-dim);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 2rem;
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--accent); letter-spacing: 0.5px;
+}
+
+/* ── Tilt Cards (JS applied) ── */
+.tilt-card { transform-style: preserve-3d; }
+
+/* ── WhatsApp Quick-Book Modal ── */
+.qb-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(10,22,40,0.7);
+  backdrop-filter: blur(6px);
+  display: flex; align-items: flex-end; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.qb-overlay.open {
+  opacity: 1; pointer-events: all;
+}
+.qb-sheet {
+  background: var(--white);
+  width: 100%; max-width: 480px;
+  border-radius: 1.5rem 1.5rem 0 0;
+  padding: 2rem 2rem 2.5rem;
+  transform: translateY(60px);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  position: relative;
+}
+.qb-overlay.open .qb-sheet {
+  transform: translateY(0);
+}
+.qb-handle {
+  width: 40px; height: 4px;
+  background: #ddd; border-radius: 2px;
+  margin: 0 auto 1.5rem;
+}
+.qb-close {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: var(--surface, #f5f8ff); border: 1.5px solid rgba(10,22,40,0.12);
+  border-radius: 2rem; cursor: pointer;
+  font-size: 0.85rem; font-weight: 600; color: var(--primary, #0a1628);
+  padding: 0.45rem 1rem 0.45rem 0.75rem;
+  margin-bottom: 1.25rem;
+  transition: background 0.2s, border-color 0.2s;
+  line-height: 1;
+}
+.qb-close:hover { background: var(--surface-dark, #eaeffa); border-color: var(--accent, #c9a84c); }
+.qb-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem; font-weight: 700;
+  color: var(--primary); margin-bottom: 0.25rem;
+}
+.qb-sub {
+  font-size: 0.85rem; color: #666; margin-bottom: 1.5rem;
+}
+.qb-form { display: flex; flex-direction: column; gap: 0.9rem; }
+.qb-field {
+  display: flex; flex-direction: column; gap: 0.35rem;
+}
+.qb-field label {
+  font-size: 0.78rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--primary);
+}
+.qb-field input,
+.qb-field select {
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid #dde3ef;
+  border-radius: 0.6rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; color: var(--text);
+  background: #f8faff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+.qb-field input:focus,
+.qb-field select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+  background: var(--white);
+}
+.qb-btn {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.6rem;
+  background: #25D366;
+  color: #fff; border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem; font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+}
+.qb-btn:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37,211,102,0.4);
+}
+.qb-btn svg { width: 22px; height: 22px; fill: currentColor; flex-shrink: 0; }
+.qb-note {
+  font-size: 0.78rem; color: #888; text-align: center; margin-top: 0.5rem;
+}
+
+/* float-wa trigger label */
+.float-wa-wrap { position: relative; }
+.qb-trigger-label {
+  position: absolute; right: calc(100% + 10px); bottom: 0;
+  white-space: nowrap;
+  background: var(--primary);
+  color: var(--accent);
+  font-size: 0.78rem; font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 2rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity 0.25s, transform 0.25s;
+  letter-spacing: 0.3px;
+}
+.float-wa-wrap:hover .qb-trigger-label {
+  opacity: 1; transform: translateX(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2,1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .navbar { padding: 0 1.25rem; }
+  .nav-links, .nav-cta { display: none !important; }
+  .hamburger { display: flex; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .float-call span { display: none; }
+  section { padding: 4rem 0; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+  body { cursor: auto; }
+  #cursor-dot, #cursor-ring { display: none; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 1.25rem; }
+  .btn { padding: 0.75rem 1.5rem; font-size: 0.875rem; }
+}
+
+/* === PAGE STYLES === */
+
+    /* ── Contact Page ── */
+    .contact-section { background: var(--surface); padding: 6rem 0; }
+    .contact-layout {
+      display: grid; grid-template-columns: 1fr 1.1fr;
+      gap: 4rem; align-items: start;
+    }
+
+    /* ── Info Cards ── */
+    .info-cards { display: flex; flex-direction: column; gap: 1.25rem; }
+    .info-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(10,22,40,0.06);
+      display: flex; align-items: flex-start; gap: 1.25rem;
+      transition: all var(--transition);
+    }
+    .info-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover); border-color: var(--accent); }
+    .info-card-icon {
+      width: 52px; height: 52px;
+      background: var(--accent-dim);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; flex-shrink: 0;
+    }
+    .info-card-content h3 {
+      font-family: var(--font-display);
+      font-size: 1rem; font-weight: 600;
+      color: var(--primary); margin-bottom: 0.4rem;
+    }
+    .info-card-content p, .info-card-content a {
+      font-size: 0.875rem; color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .info-card-content a { color: var(--accent); font-weight: 500; }
+    .info-card-content a:hover { text-decoration: underline; }
+    .info-card-highlight {
+      font-size: 1.1rem; font-weight: 700; color: var(--primary);
+    }
+
+    .wa-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: #25D366; color: var(--white);
+      padding: 1rem 1.5rem; border-radius: var(--radius);
+      font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+      transition: all var(--transition);
+      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+    }
+    .wa-btn:hover { background: #1ebe5a; transform: scale(1.03); box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
+    .wa-btn svg { width: 24px; height: 24px; fill: white; }
+
+    /* ── Form ── */
+    .form-back-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--surface); border: 1.5px solid rgba(10,22,40,0.14);
+      border-radius: 2rem; cursor: pointer;
+      font-size: 0.875rem; font-weight: 600; color: var(--primary);
+      font-family: var(--font-body);
+      padding: 0.5rem 1.1rem 0.5rem 0.85rem;
+      margin-bottom: 1.5rem;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      line-height: 1;
+    }
+    .form-back-btn:hover { background: var(--surface-dark); border-color: var(--accent); transform: translateX(-3px); }
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(10,22,40,0.06);
+    }
+    .form-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--primary); margin-bottom: 0.4rem;
+    }
+    .form-card > p { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 2rem; }
+
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block; font-size: 0.82rem; font-weight: 600;
+      color: var(--primary); margin-bottom: 0.5rem;
+      letter-spacing: 0.3px;
+    }
+    .form-group label span { color: var(--accent); }
+    .form-control {
+      width: 100%; padding: 0.875rem 1rem;
+      border: 1.5px solid rgba(10,22,40,0.14);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body); font-size: 0.9rem;
+      color: var(--text); background: var(--white);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none; appearance: none;
+    }
+    .form-control:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+    }
+    .form-control::placeholder { color: rgba(90,96,112,0.6); }
+    select.form-control { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230a1628' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+    textarea.form-control { resize: vertical; min-height: 120px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .submit-btn {
+      width: 100%; padding: 1rem;
+      background: var(--primary); color: var(--white);
+      border: none; border-radius: var(--radius-sm);
+      font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+      cursor: pointer; position: relative; overflow: hidden;
+      transition: all var(--transition);
+      letter-spacing: 0.3px;
+    }
+    .submit-btn:hover { background: var(--accent); color: var(--primary); transform: scale(1.02); }
+    .submit-btn::after {
+      content: '';
+      position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s ease;
+    }
+    .submit-btn:hover::after { left: 150%; }
+
+    .form-note {
+      text-align: center; margin-top: 1rem;
+      font-size: 0.78rem; color: var(--text-muted);
+    }
+    .form-note a { color: var(--accent); }
+
+    /* ── Success Message ── */
+    .form-success {
+      display: none;
+      text-align: center; padding: 3rem 2rem;
+    }
+    .form-success.visible { display: block; }
+    .success-icon { font-size: 4rem; margin-bottom: 1rem; }
+    .success-title { font-family: var(--font-display); font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .success-text { font-size: 0.9rem; color: var(--text-muted); }
+
+    /* ── Map Section ── */
+    .map-section { background: var(--white); padding: 5rem 0 0; }
+    .map-container {
+      border-radius: var(--radius) var(--radius) 0 0;
+      overflow: hidden;
+      box-shadow: 0 -4px 32px rgba(10,22,40,0.08);
+      margin-top: 3rem;
+    }
+    .map-container iframe {
+      display: block; width: 100%; height: 420px; border: none;
+    }
+
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .map-container iframe { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<nav class="navbar" data-theme="light" aria-label="Main navigation">
+  <a href="index.html" class="nav-brand">
+    <div class="nav-logo" aria-hidden="true">KNB</div>
+    <div class="nav-brand-text" style="color:var(--primary)">
+      Kolhapur Nursing Bureau
+      <span class="nav-brand-sub">Hospital-Grade Care, Delivered Home</span>
+    </div>
+  </a>
+  <div class="nav-links" role="list">
+    <a href="index.html" role="listitem" style="color:var(--primary)">Home</a>
+    <a href="services.html" role="listitem" style="color:var(--primary)">Services</a>
+    <a href="about.html" role="listitem" style="color:var(--primary)">About</a>
+    <a href="contact.html" role="listitem" class="active" style="color:var(--accent)">Contact</a>
+    <a href="tel:+919021854070" class="nav-cta" role="listitem">📞 Call Now</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span style="background:var(--primary)"></span>
+    <span style="background:var(--primary)"></span>
+    <span style="background:var(--primary)"></span>
+  </button>
+</nav>
+
+<div class="nav-overlay" id="nav-overlay" role="dialog">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="tel:+919021854070" class="nav-overlay-cta">📞 090218 54070</a>
+</div>
+
+<main>
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="page-hero-label">We're Available 24/7</span>
+      <h1>Get in <em style="color:var(--accent);font-style:italic;">Touch</em></h1>
+      <p>Book a nurse, ask about services or request an urgent visit — our team responds quickly, any hour of the day.</p>
+      <div class="page-hero-breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span style="color:rgba(255,255,255,0.7)">Contact</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Contact Section ── -->
+  <section class="contact-section" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Left: Info -->
+        <div>
+          <span class="section-label">Reach Us Directly</span>
+          <h2 class="section-title" id="contact-heading" style="margin-bottom:0.75rem;">We're Always <em>Here</em></h2>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.7; margin-bottom:2rem;">
+            Whether it's a planned care package or an urgent request at midnight — our team is ready to help. Fill the form, call directly or message us on WhatsApp.
+          </p>
+
+          <div class="info-cards">
+            <div class="info-card reveal reveal-d1">
+              <div class="info-card-icon" aria-hidden="true">📍</div>
+              <div class="info-card-content">
+                <h3>Our Location</h3>
+                <p>Near Metro Hospital Shahupuri, 2nd Ln,<br>Bagal Chowk, Kolhapur,<br>Maharashtra 416001</p>
+              </div>
+            </div>
+            <div class="info-card reveal reveal-d2">
+              <div class="info-card-icon" aria-hidden="true">📞</div>
+              <div class="info-card-content">
+                <h3>Phone Number</h3>
+                <a href="tel:+919021854070" class="info-card-highlight">090218 54070</a>
+                <p style="margin-top:0.3rem;">Call anytime — we answer 24/7, 365 days.</p>
+              </div>
+            </div>
+            <div class="info-card reveal reveal-d3">
+              <div class="info-card-icon" aria-hidden="true">🕐</div>
+              <div class="info-card-content">
+                <h3>Working Hours</h3>
+                <p class="info-card-highlight">Open 24 Hours, 7 Days a Week</p>
+                <p style="margin-top:0.3rem;">Emergency visits available any time of day or night.</p>
+              </div>
+            </div>
+            <div class="info-card reveal reveal-d4">
+              <div class="info-card-icon" aria-hidden="true">📍</div>
+              <div class="info-card-content">
+                <h3>Service Area</h3>
+                <p>Kolhapur city and all nearby areas. Home visits available throughout the region.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:1.75rem;" class="reveal reveal-d3">
+            <a href="https://wa.me/919021854070" target="_blank" rel="noopener" class="wa-btn" aria-label="Chat with us on WhatsApp">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Chat on WhatsApp — wa.me/919021854070
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="reveal-right">
+          <div class="form-card">
+            <button class="form-back-btn" onclick="window.history.back()" type="button" aria-label="Go back">&#8592; Back</button>
+            <h2>Book a Service</h2>
+            <p>Fill in the details below and our team will contact you within minutes.</p>
+
+            <form id="contact-form" novalidate aria-label="Service booking form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name <span aria-hidden="true">*</span></label>
+                  <input type="text" id="name" name="name" class="form-control" placeholder="Your full name" required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
+                  <input type="tel" id="phone" name="phone" class="form-control" placeholder="Your mobile number" required autocomplete="tel" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="service">Service Required <span aria-hidden="true">*</span></label>
+                <select id="service" name="service" class="form-control" required>
+                  <option value="" disabled selected>Select a service…</option>
+                  <optgroup label="Nursing &amp; Clinical Services">
+                    <option>Qualified Nurses / Ayas / GDA / Attendants</option>
+                    <option>Patient Attendants</option>
+                    <option>ICU Development at Home</option>
+                    <option>Body Care</option>
+                    <option>Yoga &amp; Healing</option>
+                    <option>Doctor's Visit at Home</option>
+                    <option>Physiotherapy — All Specialities</option>
+                    <option>Medications &amp; Injections (IV, IM, SC, IVF)</option>
+                    <option>Wound Dressing</option>
+                    <option>Plasters</option>
+                    <option>Enema</option>
+                    <option>Tracheostomy Tube Care</option>
+                    <option>PEG Feeding</option>
+                    <option>Ryles Tube Insertion</option>
+                    <option>Foley's Catheterisation</option>
+                    <option>Parental Nutrition</option>
+                    <option>Senior Citizen Care</option>
+                    <option>Hospitalisation Assistance</option>
+                    <option>ECG at Home</option>
+                    <option>Medicine Home Delivery</option>
+                    <option>Blood Transfusion</option>
+                    <option>Blood Sample Collection</option>
+                  </optgroup>
+                  <optgroup label="Medical &amp; Surgical Equipment">
+                    <option>Fowler Bed Rental</option>
+                    <option>Wheel Chair Rental</option>
+                    <option>Walking Sticks / Crutches</option>
+                    <option>Commode Chair Rental</option>
+                    <option>Pulse Oximeter</option>
+                    <option>Nebulizer / Steamer</option>
+                    <option>BIPAP Machine</option>
+                    <option>Ventilator</option>
+                    <option>Oxygen Cylinder</option>
+                    <option>Suction Machine</option>
+                    <option>IV Stands &amp; Cannulas</option>
+                    <option>BP Apparatus</option>
+                    <option>Glucometer</option>
+                    <option>ECG Machine</option>
+                    <option>Weighing Machine</option>
+                  </optgroup>
+                  <option value="other">Other / Multiple Services</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="date">Preferred Date</label>
+                  <input type="date" id="date" name="date" class="form-control" min="" />
+                </div>
+                <div class="form-group">
+                  <label for="time">Preferred Time</label>
+                  <input type="time" id="time" name="time" class="form-control" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Additional Information</label>
+                <textarea id="message" name="message" class="form-control" placeholder="Tell us about the patient's condition, any special requirements, address, or other details…"></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn" style="display:flex;align-items:center;justify-content:center;gap:0.6rem;">
+                <svg style="width:22px;height:22px;fill:currentColor;flex-shrink:0;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Send Booking via WhatsApp
+              </button>
+              <p class="form-note">
+                Your booking details will be sent instantly to our WhatsApp. We respond within minutes, 24/7. Or call: <a href="tel:+919021854070">📞 090218 54070</a>
+              </p>
+            </form>
+
+            <div class="form-success" id="form-success" role="alert" aria-live="polite">
+              <div class="success-icon" aria-hidden="true">✅</div>
+              <div class="success-title">Request Received!</div>
+              <p class="success-text">Thank you for reaching out. Our team will contact you within the next 15 minutes to confirm your booking.<br><br>For urgent needs, please call <a href="tel:+919021854070" style="color:var(--accent); font-weight:600;">090218 54070</a> directly.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Map ── -->
+  <section class="map-section" aria-labelledby="map-heading">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Find Us</span>
+        <h2 class="section-title" id="map-heading">Our <em>Location</em></h2>
+        <p class="section-subtitle">Near Metro Hospital Shahupuri, 2nd Ln, Bagal Chowk, Kolhapur, Maharashtra 416001</p>
+      </div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.8!2d74.2179!3d16.7049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x761fe88828545f23!2sKolhapur+Nursing+Bureau.!5e0!3m2!1sen!2sin!4v1716000000000!5m2!1sen!2sin"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Kolhapur Nursing Bureau location map"
+          aria-label="Map showing our location at Bagal Chowk, Kolhapur">
+        </iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" aria-hidden="true">KNB</div>
+        <div class="footer-brand-name">Kolhapur Nursing Bureau</div>
+        <div class="footer-tagline">"Hospital-Grade Care, Delivered Home"</div>
+        <p class="footer-desc">Bringing every hospital service to your doorstep in Kolhapur and nearby areas. Trusted by 200+ families.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Nursing Staff</a></li>
+          <li><a href="services.html">Physiotherapy</a></li>
+          <li><a href="services.html">ICU at Home</a></li>
+          <li><a href="services.html">Senior Care</a></li>
+          <li><a href="services.html">Medical Equipment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-info">
+        <h4>Contact Info</h4>
+        <p><strong>📍</strong> Near Metro Hospital Shahupuri, 2nd Ln, Bagal Chowk, Kolhapur, MH 416001</p>
+        <p class="footer-phone"><a href="tel:+919021854070">📞 090218 54070</a></p>
+        <p><strong>🕐</strong> Open 24/7 — 365 Days a Year</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span>Kolhapur Nursing Bureau</span>. All rights reserved.</p>
+      <p>Made with ❤️ in Kolhapur</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919021854070" class="float-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<a href="tel:+919021854070" class="float-call" aria-label="Call now">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+  <span>Call Now</span>
+</a>
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<script>
+/* ── Set min date on date input ── */
+(function() {
+  const dateInput = document.getElementById('date');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+  }
+})();
+
+/* ── Form Submission → WhatsApp ── */
+document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name    = document.getElementById('name').value.trim();
+  const phone   = document.getElementById('phone').value.trim();
+  const service = document.getElementById('service').value;
+  const date    = document.getElementById('date').value;
+  const time    = document.getElementById('time').value;
+  const message = document.getElementById('message').value.trim();
+
+  if (!name || !phone || !service) {
+    /* Shake required fields */
+    ['name','phone','service'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.style.borderColor = '#e53e3e';
+        el.style.boxShadow = '0 0 0 3px rgba(229,62,62,0.15)';
+        setTimeout(() => { el.style.borderColor = ''; el.style.boxShadow = ''; }, 2500);
+      }
+    });
+    return;
+  }
+
+  /* Build the WhatsApp message */
+  let msg = `🏥 *New Booking Request — Kolhapur Nursing Bureau*\n\n`;
+  msg += `👤 *Name:* ${name}\n`;
+  msg += `📞 *Phone:* ${phone}\n`;
+  msg += `🩺 *Service Required:* ${service}\n`;
+  if (date) {
+    const formatted = new Date(date).toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+    msg += `📅 *Preferred Date:* ${formatted}\n`;
+  }
+  if (time) {
+    const [h, m] = time.split(':');
+    const hr = parseInt(h), ampm = hr >= 12 ? 'PM' : 'AM';
+    msg += `🕐 *Preferred Time:* ${hr % 12 || 12}:${m} ${ampm}\n`;
+  }
+  if (message) msg += `\n📝 *Additional Details:*\n${message}\n`;
+  msg += `\n_Sent via KNB website booking form_`;
+
+  /* Show loading state */
+  const btn = this.querySelector('.submit-btn');
+  const originalText = btn.textContent;
+  btn.textContent = 'Opening WhatsApp…';
+  btn.disabled = true;
+
+  /* Open WhatsApp */
+  const waURL = `https://wa.me/919021854070?text=${encodeURIComponent(msg)}`;
+  window.open(waURL, '_blank', 'noopener');
+
+  /* Show success */
+  setTimeout(() => {
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').classList.add('visible');
+  }, 600);
+});
+</script>
+
+<script>
+/* === SHARED JS === */
+/* ============================================================
+   KOLHAPUR NURSING BUREAU — SHARED JAVASCRIPT
+   ============================================================ */
+
+/* ── Custom Cursor ── */
+(function initCursor() {
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
+  if (window.innerWidth <= 768) return;
+
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`;
+  });
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%,-50%)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button, .card, [role="button"]').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width = '52px';
+      ring.style.height = '52px';
+      ring.style.borderColor = 'var(--accent-light)';
+      dot.style.background = 'var(--accent)';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+      ring.style.borderColor = 'var(--accent)';
+      dot.style.background = 'var(--primary)';
+    });
+  });
+})();
+
+/* ── Navbar Scroll Behavior ── */
+(function initNavbar() {
+  const navbar = document.querySelector('.navbar');
+  if (!navbar) return;
+  const isLight = navbar.dataset.theme === 'light';
+
+  function updateNav() {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+      if (isLight) navbar.classList.remove('light');
+    } else {
+      navbar.classList.remove('scrolled');
+      if (isLight) navbar.classList.add('light');
+    }
+  }
+  updateNav();
+  window.addEventListener('scroll', updateNav, { passive: true });
+
+  /* Active link */
+  const path = window.location.pathname;
+  document.querySelectorAll('.nav-links a, .nav-overlay a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href === 'index.html' && (path.endsWith('/') || path.endsWith('index.html'))) {
+      a.classList.add('active');
+    } else if (href !== 'index.html' && path.includes(href.replace('.html', ''))) {
+      a.classList.add('active');
+    }
+  });
+})();
+
+/* ── Mobile Hamburger ── */
+(function initHamburger() {
+  const btn = document.getElementById('hamburger');
+  const overlay = document.getElementById('nav-overlay');
+  if (!btn || !overlay) return;
+
+  btn.addEventListener('click', () => {
+    const open = btn.classList.toggle('open');
+    if (open) {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    } else {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+
+  overlay.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      btn.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+
+/* ── Scroll Reveal (IntersectionObserver) ── */
+(function initReveal() {
+  const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  if (!els.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  els.forEach(el => observer.observe(el));
+})();
+
+/* ── Back To Top ── */
+(function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+
+/* ── Card 3D Tilt ── */
+(function initTilt() {
+  if (window.innerWidth <= 768) return;
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      card.style.transform = `translateY(-6px) rotateX(${-dy * 4}deg) rotateY(${dx * 4}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+})();
+
+/* ── Count-Up Animation ── */
+function countUp(el, target, duration = 1800) {
+  const start = performance.now();
+  const isDecimal = String(target).includes('.');
+  function update(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    const val = eased * target;
+    el.textContent = isDecimal ? val.toFixed(1) : Math.round(val).toLocaleString();
+    if (t < 1) requestAnimationFrame(update);
+    else el.textContent = isDecimal ? target : target.toLocaleString();
+  }
+  requestAnimationFrame(update);
+}
+
+function initCountUp() {
+  const counters = document.querySelectorAll('[data-count]');
+  if (!counters.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseFloat(el.dataset.count);
+        countUp(el, target);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => observer.observe(el));
+}
+initCountUp();
+
+/* ── Page Load Fade In ── */
+(function initPageLoad() {
+  document.querySelectorAll('.hero-animate').forEach((el, i) => {
+    el.style.animationDelay = `${i * 0.15}s`;
+    el.classList.add('hero-loaded');
+  });
+})();
+
+/* ── WhatsApp Quick-Book Modal ── */
+(function initQuickBook() {
+  const WA_NUMBER = '919021854070';
+
+  const SERVICES = [
+    'Qualified Nurses / Ayas / GDA / Attendants',
+    'Patient Attendants',
+    'ICU Development at Home',
+    'Body Care',
+    'Yoga & Healing',
+    "Doctor's Visit at Home",
+    'Physiotherapy — All Specialities',
+    'Medications & Injections (IV, IM, SC, IVF)',
+    'Wound Dressing',
+    'Plasters',
+    'Enema',
+    'Tracheostomy Tube Care',
+    'PEG Feeding',
+    "Ryle's Tube Insertion",
+    "Foley's Catheterisation",
+    'Parental Nutrition',
+    'Senior Citizen Care',
+    'Hospitalisation Assistance',
+    'ECG at Home',
+    'Medicine Home Delivery',
+    'Blood Transfusion',
+    'Blood Sample Collection',
+    'Fowler Bed Rental',
+    'Wheel Chair Rental',
+    'Walking Sticks / Crutches',
+    'Commode Chair Rental',
+    'Medical Equipment Rental',
+    'Other / Multiple Services',
+  ];
+
+  /* ─ Inject modal HTML ─ */
+  const overlay = document.createElement('div');
+  overlay.className = 'qb-overlay';
+  overlay.id = 'qb-overlay';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', 'Quick Book via WhatsApp');
+  overlay.innerHTML = `
+    <div class="qb-sheet" id="qb-sheet">
+      <div class="qb-handle"></div>
+      <button class="qb-close" id="qb-close" aria-label="Go back">&#8592; Back</button>
+      <div class="qb-title">Book a Service via WhatsApp</div>
+      <p class="qb-sub">Fill in your details — we'll receive your request instantly on WhatsApp and call you back within minutes.</p>
+      <form class="qb-form" id="qb-form" novalidate>
+        <div class="qb-field">
+          <label for="qb-name">Your Name *</label>
+          <input type="text" id="qb-name" placeholder="e.g. Rahul Patil" autocomplete="name" required />
+        </div>
+        <div class="qb-field">
+          <label for="qb-phone">Phone Number *</label>
+          <input type="tel" id="qb-phone" placeholder="e.g. 9876543210" autocomplete="tel" required />
+        </div>
+        <div class="qb-field">
+          <label for="qb-service">Service Needed *</label>
+          <select id="qb-service" required>
+            <option value="" disabled selected>Select a service…</option>
+            ${SERVICES.map(s => `<option>${s}</option>`).join('')}
+          </select>
+        </div>
+        <button type="submit" class="qb-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Send via WhatsApp
+        </button>
+        <p class="qb-note">No app needed — opens WhatsApp Web or your WhatsApp app automatically.</p>
+      </form>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  /* ─ Wrap existing float-wa in a clickable trigger ─ */
+  const floatWa = document.querySelector('.float-wa');
+  if (floatWa) {
+    floatWa.addEventListener('click', (e) => {
+      e.preventDefault();
+      openQB();
+    });
+    /* Add tooltip label */
+    const label = document.createElement('span');
+    label.className = 'qb-trigger-label';
+    label.textContent = 'Quick Book';
+    floatWa.appendChild(label);
+  }
+
+  /* ─ Open / close helpers ─ */
+  function openQB() {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('qb-name')?.focus(), 350);
+  }
+  function closeQB() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('qb-close').addEventListener('click', closeQB);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeQB(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeQB(); });
+
+  /* ─ Form submit → WhatsApp ─ */
+  document.getElementById('qb-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name    = document.getElementById('qb-name').value.trim();
+    const phone   = document.getElementById('qb-phone').value.trim();
+    const service = document.getElementById('qb-service').value;
+
+    if (!name || !phone || !service) {
+      ['qb-name','qb-phone','qb-service'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.style.borderColor = '#e53e3e';
+          el.style.boxShadow = '0 0 0 3px rgba(229,62,62,0.15)';
+          setTimeout(() => { el.style.borderColor = ''; el.style.boxShadow = ''; }, 2200);
+        }
+      });
+      return;
+    }
+
+    let msg = `🏥 *Quick Booking — Kolhapur Nursing Bureau*\n\n`;
+    msg += `👤 *Name:* ${name}\n`;
+    msg += `📞 *Phone:* ${phone}\n`;
+    msg += `🩺 *Service Needed:* ${service}\n`;
+    msg += `\n_Sent via KNB website quick-book widget_`;
+
+    const waURL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+    const btn = e.target.querySelector('.qb-btn');
+    btn.textContent = 'Opening WhatsApp…';
+    btn.disabled = true;
+
+    window.open(waURL, '_blank', 'noopener');
+
+    setTimeout(() => {
+      closeQB();
+      btn.innerHTML = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Send via WhatsApp`;
+      btn.disabled = false;
+      document.getElementById('qb-form').reset();
+    }, 800);
+  });
+})();
+
+</script>
+</body>
+</html>

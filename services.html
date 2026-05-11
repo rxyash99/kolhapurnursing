@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services — Kolhapur Nursing Bureau</title>
+  <meta name="description" content="Complete list of nursing, clinical and medical equipment services by Kolhapur Nursing Bureau. 40+ services available at home." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%230a1628'/><text x='50' y='68' text-anchor='middle' font-size='44' font-weight='bold' fill='%23c9a84c' font-family='Georgia'>K</text></svg>" />
+  <style>
+/* === SHARED STYLES === */
+
+  @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 300; font-display: swap; src: url(fonts/dm-sans-300.ttf) format('truetype'); }
+  @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/dm-sans-400.ttf) format('truetype'); }
+  @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/dm-sans-500.ttf) format('truetype'); }
+  @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/dm-sans-600.ttf) format('truetype'); }
+  @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url(fonts/dm-sans-700.ttf) format('truetype'); }
+  @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/playfair-400.ttf) format('truetype'); }
+  @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/playfair-600.ttf) format('truetype'); }
+  @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 700; font-display: swap; src: url(fonts/playfair-700.ttf) format('truetype'); }
+  @font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 400; font-display: swap; src: url(fonts/playfair-400i.ttf) format('truetype'); }
+  @font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 600; font-display: swap; src: url(fonts/playfair-600i.ttf) format('truetype'); }
+  
+/* ============================================================
+   KOLHAPUR NURSING BUREAU — SHARED STYLES
+   ============================================================ */
+
+
+/* ── CSS Variables ── */
+:root {
+  --primary: #0a1628;
+  --primary-light: #102040;
+  --accent: #c9a84c;
+  --accent-light: #e0c070;
+  --accent-dim: rgba(201,168,76,0.15);
+  --surface: #f5f8ff;
+  --surface-dark: #eaeffa;
+  --text: #1a1a2e;
+  --text-muted: #5a6070;
+  --white: #ffffff;
+  --gold-glow: 0 0 20px rgba(201,168,76,0.4);
+  --card-shadow: 0 4px 24px rgba(10,22,40,0.10);
+  --card-shadow-hover: 0 12px 40px rgba(10,22,40,0.18);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.7;
+  cursor: none;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul, ol { list-style: none; }
+
+/* ── Custom Cursor ── */
+#cursor-dot {
+  width: 8px; height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 99999;
+  transform: translate(-50%,-50%);
+  transition: background 0.2s;
+  will-change: transform;
+}
+#cursor-ring {
+  width: 36px; height: 36px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 99998;
+  transform: translate(-50%,-50%);
+  transition: width 0.2s, height 0.2s, border-color 0.2s;
+  will-change: transform;
+}
+body:hover #cursor-ring { opacity: 1; }
+a:hover ~ #cursor-ring,
+button:hover ~ #cursor-ring { width: 48px; height: 48px; border-color: var(--accent-light); }
+
+/* ── Navigation ── */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 2rem;
+  height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
+  background: transparent;
+}
+.navbar.scrolled {
+  background: rgba(10,22,40,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.3);
+}
+.navbar.light {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 16px rgba(10,22,40,0.08);
+}
+.navbar.light .nav-links a { color: var(--primary); }
+.navbar.light .nav-links a::after { background: var(--accent); }
+.navbar.light .nav-brand-text { color: var(--primary); }
+
+.nav-brand {
+  display: flex; align-items: center; gap: 12px;
+  flex-shrink: 0;
+}
+.nav-logo {
+  width: 44px; height: 44px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 1.1rem;
+  color: var(--primary);
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+}
+.nav-brand-text {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--white);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.nav-brand-sub {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  opacity: 0.7;
+  display: block;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex; gap: 2.5rem; align-items: center;
+}
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.9rem; font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  position: relative;
+  transition: color var(--transition);
+  letter-spacing: 0.3px;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0; right: 100%;
+  height: 2px; background: var(--accent);
+  transition: right var(--transition);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after { right: 0; }
+.nav-links a:hover { color: var(--white); }
+.nav-links a.active { color: var(--accent); }
+
+.nav-cta {
+  background: var(--accent);
+  color: var(--primary) !important;
+  padding: 0.55rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  transition: all var(--transition) !important;
+  white-space: nowrap;
+}
+.nav-cta:hover {
+  background: var(--accent-light);
+  transform: scale(1.04);
+  box-shadow: var(--gold-glow);
+}
+.nav-cta::after { display: none !important; }
+
+.hamburger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px;
+  background: none; border: none;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block; width: 26px; height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all var(--transition);
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+.nav-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 999;
+  background: var(--primary);
+  flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 2rem;
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--transition);
+}
+.nav-overlay.open { opacity: 1; pointer-events: all; display: flex; }
+.nav-overlay a {
+  font-family: var(--font-display);
+  font-size: 2rem; color: var(--white);
+  font-weight: 600;
+  transition: color var(--transition);
+}
+.nav-overlay a:hover { color: var(--accent); }
+.nav-overlay .nav-overlay-cta {
+  background: var(--accent); color: var(--primary);
+  padding: 0.8rem 2rem; border-radius: var(--radius-sm);
+  font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+}
+
+/* ── Section Base ── */
+section { padding: 6rem 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.container-wide { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.75rem;
+  display: block;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: var(--primary); line-height: 1.25;
+  margin-bottom: 1rem;
+}
+.section-title em { font-style: italic; color: var(--accent); }
+.section-subtitle {
+  font-size: 1rem; color: var(--text-muted);
+  max-width: 560px; line-height: 1.7;
+}
+.text-center { text-align: center; }
+.text-center .section-subtitle { margin: 0 auto; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; border: none; position: relative; overflow: hidden;
+  transition: all var(--transition);
+  will-change: transform;
+  letter-spacing: 0.3px;
+}
+.btn::after {
+  content: '';
+  position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+.btn:hover::after { left: 150%; }
+.btn:hover { transform: scale(1.04); }
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--primary);
+  box-shadow: 0 4px 16px rgba(201,168,76,0.3);
+}
+.btn-primary:hover {
+  background: var(--accent-light);
+  box-shadow: var(--gold-glow);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.6);
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+.btn-outline-dark {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn-outline-dark:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(10,22,40,0.06);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--accent);
+}
+.card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform var(--transition);
+}
+.card:hover::before { transform: scaleX(1); }
+
+.card-icon {
+  font-size: 2rem; margin-bottom: 1rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px;
+  background: var(--accent-dim);
+  border-radius: var(--radius-sm);
+}
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem; font-weight: 600;
+  color: var(--primary); margin-bottom: 0.4rem;
+}
+.card-text { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ── Scroll Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* Staggered delays */
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+.reveal-d5 { transition-delay: 0.5s; }
+.reveal-d6 { transition-delay: 0.6s; }
+
+/* ── Floating Buttons ── */
+.float-wa {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 900;
+  width: 56px; height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: all var(--transition);
+  animation: waBounce 3s ease-in-out infinite;
+  will-change: transform;
+}
+.float-wa:hover {
+  transform: scale(1.12);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.6);
+  animation: none;
+}
+.float-wa svg { width: 28px; height: 28px; fill: white; }
+
+.float-call {
+  position: fixed; bottom: 2rem; left: 2rem; z-index: 900;
+  background: var(--accent);
+  color: var(--primary);
+  border-radius: 2rem;
+  padding: 0.75rem 1.25rem;
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 700;
+  box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.float-call:hover {
+  background: var(--accent-light);
+  transform: scale(1.04);
+  box-shadow: var(--gold-glow);
+}
+.float-call svg { width: 18px; height: 18px; }
+
+.back-to-top {
+  position: fixed; bottom: 7rem; right: 2rem; z-index: 900;
+  width: 44px; height: 44px;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(10,22,40,0.3);
+  cursor: pointer; border: none;
+  opacity: 0; pointer-events: none;
+  transition: all var(--transition);
+  font-size: 1.1rem;
+}
+.back-to-top.visible { opacity: 1; pointer-events: all; }
+.back-to-top:hover { background: var(--accent); color: var(--primary); transform: translateY(-3px); }
+
+/* ── WhatsApp Bounce ── */
+@keyframes waBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ── Pulse Animation ── */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  70% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+.pulse-btn { position: relative; }
+.pulse-btn::before, .pulse-btn::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  border: 2px solid var(--accent);
+  animation: pulse-ring 2s ease-out infinite;
+  pointer-events: none;
+}
+.pulse-btn::after { animation-delay: 0.6s; }
+
+/* ── Page Hero (non-home) ── */
+.page-hero {
+  background: linear-gradient(135deg, var(--primary) 0%, #162a4a 100%);
+  padding: 10rem 0 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%);
+}
+.page-hero-label {
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.75rem;
+  display: block;
+}
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--white); line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.page-hero p {
+  font-size: 1rem; color: rgba(255,255,255,0.7);
+  max-width: 500px; margin: 0 auto;
+}
+.page-hero-breadcrumb {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.5rem; margin-top: 2rem;
+  font-size: 0.85rem; color: rgba(255,255,255,0.5);
+}
+.page-hero-breadcrumb a { color: var(--accent); }
+.page-hero-breadcrumb span { color: rgba(255,255,255,0.3); }
+
+/* ── Footer ── */
+.footer {
+  background: var(--primary);
+  color: rgba(255,255,255,0.8);
+  padding: 4rem 0 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.footer-brand { }
+.footer-brand .nav-logo { width: 52px; height: 52px; font-size: 1.2rem; margin-bottom: 1rem; }
+.footer-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem; color: var(--white); font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.footer-tagline { font-size: 0.85rem; color: var(--accent); font-style: italic; margin-bottom: 1rem; }
+.footer-desc { font-size: 0.875rem; line-height: 1.7; color: rgba(255,255,255,0.6); }
+
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.25rem;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col ul a {
+  font-size: 0.875rem; color: rgba(255,255,255,0.6);
+  transition: color var(--transition);
+}
+.footer-col ul a:hover { color: var(--accent); }
+
+.footer-info p {
+  font-size: 0.875rem; color: rgba(255,255,255,0.6);
+  line-height: 1.7; margin-bottom: 0.5rem;
+  display: flex; gap: 0.5rem;
+}
+.footer-info p strong { color: rgba(255,255,255,0.85); flex-shrink: 0; }
+.footer-phone {
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--accent) !important;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.8rem; color: rgba(255,255,255,0.4);
+}
+.footer-bottom span { color: var(--accent); }
+
+/* ── Grid Utilities ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.75rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 1.5rem; }
+
+/* ── Divider ── */
+.divider { width: 60px; height: 3px; background: var(--accent); margin: 1.25rem 0; border-radius: 2px; }
+.divider-center { margin: 1.25rem auto; }
+
+/* ── Highlight Badge ── */
+.badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  background: var(--accent-dim);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 2rem;
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--accent); letter-spacing: 0.5px;
+}
+
+/* ── Tilt Cards (JS applied) ── */
+.tilt-card { transform-style: preserve-3d; }
+
+/* ── WhatsApp Quick-Book Modal ── */
+.qb-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(10,22,40,0.7);
+  backdrop-filter: blur(6px);
+  display: flex; align-items: flex-end; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.qb-overlay.open {
+  opacity: 1; pointer-events: all;
+}
+.qb-sheet {
+  background: var(--white);
+  width: 100%; max-width: 480px;
+  border-radius: 1.5rem 1.5rem 0 0;
+  padding: 2rem 2rem 2.5rem;
+  transform: translateY(60px);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  position: relative;
+}
+.qb-overlay.open .qb-sheet {
+  transform: translateY(0);
+}
+.qb-handle {
+  width: 40px; height: 4px;
+  background: #ddd; border-radius: 2px;
+  margin: 0 auto 1.5rem;
+}
+.qb-close {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: var(--surface, #f5f8ff); border: 1.5px solid rgba(10,22,40,0.12);
+  border-radius: 2rem; cursor: pointer;
+  font-size: 0.85rem; font-weight: 600; color: var(--primary, #0a1628);
+  padding: 0.45rem 1rem 0.45rem 0.75rem;
+  margin-bottom: 1.25rem;
+  transition: background 0.2s, border-color 0.2s;
+  line-height: 1;
+}
+.qb-close:hover { background: var(--surface-dark, #eaeffa); border-color: var(--accent, #c9a84c); }
+.qb-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem; font-weight: 700;
+  color: var(--primary); margin-bottom: 0.25rem;
+}
+.qb-sub {
+  font-size: 0.85rem; color: #666; margin-bottom: 1.5rem;
+}
+.qb-form { display: flex; flex-direction: column; gap: 0.9rem; }
+.qb-field {
+  display: flex; flex-direction: column; gap: 0.35rem;
+}
+.qb-field label {
+  font-size: 0.78rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--primary);
+}
+.qb-field input,
+.qb-field select {
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid #dde3ef;
+  border-radius: 0.6rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; color: var(--text);
+  background: #f8faff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+.qb-field input:focus,
+.qb-field select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+  background: var(--white);
+}
+.qb-btn {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.6rem;
+  background: #25D366;
+  color: #fff; border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem; font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+}
+.qb-btn:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37,211,102,0.4);
+}
+.qb-btn svg { width: 22px; height: 22px; fill: currentColor; flex-shrink: 0; }
+.qb-note {
+  font-size: 0.78rem; color: #888; text-align: center; margin-top: 0.5rem;
+}
+
+/* float-wa trigger label */
+.float-wa-wrap { position: relative; }
+.qb-trigger-label {
+  position: absolute; right: calc(100% + 10px); bottom: 0;
+  white-space: nowrap;
+  background: var(--primary);
+  color: var(--accent);
+  font-size: 0.78rem; font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 2rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity 0.25s, transform 0.25s;
+  letter-spacing: 0.3px;
+}
+.float-wa-wrap:hover .qb-trigger-label {
+  opacity: 1; transform: translateX(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2,1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .navbar { padding: 0 1.25rem; }
+  .nav-links, .nav-cta { display: none !important; }
+  .hamburger { display: flex; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .float-call span { display: none; }
+  section { padding: 4rem 0; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+  body { cursor: auto; }
+  #cursor-dot, #cursor-ring { display: none; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 1.25rem; }
+  .btn { padding: 0.75rem 1.5rem; font-size: 0.875rem; }
+}
+
+/* === PAGE STYLES === */
+
+    /* ── Services Page Specific ── */
+    .services-section-full { background: var(--surface); }
+    .services-section-full:nth-child(even) { background: var(--white); }
+
+    .full-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+    .service-card-full {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(10,22,40,0.06);
+      transition: all var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .service-card-full::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent); transform: scaleX(0); transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .service-card-full:hover::before { transform: scaleX(1); }
+    .service-card-full:hover { transform: translateY(-5px); box-shadow: var(--card-shadow-hover); border-color: rgba(201,168,76,0.3); }
+    .service-card-full .card-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+    .service-card-full h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--primary); margin-bottom: 0.6rem;
+    }
+    .service-card-full p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
+    .equip-note {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      margin-top: 0.75rem;
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--accent); letter-spacing: 0.3px;
+    }
+
+    /* ── Packages Table ── */
+    .packages-section { background: var(--primary); padding: 6rem 0; }
+    .packages-section .section-title { color: var(--white); }
+    .packages-section .section-label { color: var(--accent); }
+    .packages-section .section-subtitle { color: rgba(255,255,255,0.6); }
+
+    .packages-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .pkg-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: all var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .pkg-card.featured {
+      background: rgba(201,168,76,0.1);
+      border-color: var(--accent);
+    }
+    .pkg-card.featured::before {
+      content: 'Most Popular';
+      position: absolute; top: 1rem; right: 1rem;
+      background: var(--accent); color: var(--primary);
+      font-size: 0.72rem; font-weight: 700;
+      padding: 0.25rem 0.75rem; border-radius: 2rem;
+      letter-spacing: 0.5px;
+    }
+    .pkg-card:hover {
+      background: rgba(201,168,76,0.08);
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+    .pkg-name {
+      font-family: var(--font-body);
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.5rem;
+    }
+    .pkg-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem; color: var(--white);
+      font-weight: 700; margin-bottom: 1.5rem;
+    }
+    .pkg-features { text-align: left; margin-bottom: 2rem; }
+    .pkg-feature {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.875rem; color: rgba(255,255,255,0.75);
+      line-height: 1.4;
+    }
+    .pkg-feature .check { color: var(--accent); font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
+    .pkg-feature .cross { color: rgba(255,255,255,0.25); font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
+    .pkg-cta {
+      display: block; width: 100%;
+      padding: 0.875rem; border-radius: var(--radius-sm);
+      font-family: var(--font-body); font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; border: none; text-align: center;
+      transition: all var(--transition);
+      letter-spacing: 0.3px;
+    }
+    .pkg-cta-outline {
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.3);
+      color: var(--white);
+    }
+    .pkg-cta-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .pkg-cta-gold { background: var(--accent); color: var(--primary); }
+    .pkg-cta-gold:hover { background: var(--accent-light); box-shadow: var(--gold-glow); }
+
+    @media (max-width: 768px) {
+      .packages-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<nav class="navbar" data-theme="light" aria-label="Main navigation">
+  <a href="index.html" class="nav-brand">
+    <div class="nav-logo" aria-hidden="true">KNB</div>
+    <div class="nav-brand-text" style="color:var(--primary)">
+      Kolhapur Nursing Bureau
+      <span class="nav-brand-sub">Hospital-Grade Care, Delivered Home</span>
+    </div>
+  </a>
+  <div class="nav-links" role="list">
+    <a href="index.html" role="listitem" style="color:var(--primary)">Home</a>
+    <a href="services.html" role="listitem" class="active" style="color:var(--accent)">Services</a>
+    <a href="about.html" role="listitem" style="color:var(--primary)">About</a>
+    <a href="contact.html" role="listitem" style="color:var(--primary)">Contact</a>
+    <a href="tel:+919021854070" class="nav-cta" role="listitem">📞 Call Now</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span style="background:var(--primary)"></span>
+    <span style="background:var(--primary)"></span>
+    <span style="background:var(--primary)"></span>
+  </button>
+</nav>
+
+<div class="nav-overlay" id="nav-overlay" role="dialog">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="tel:+919021854070" class="nav-overlay-cta">📞 090218 54070</a>
+</div>
+
+<main>
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="page-hero-label">Everything You Need</span>
+      <h1>Our Complete <em style="color:var(--accent);font-style:italic;">Services</em></h1>
+      <p>40+ professional healthcare services delivered with clinical precision and compassionate care.</p>
+      <div class="page-hero-breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span style="color:rgba(255,255,255,0.7)">Services</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Section 1: Nursing & Clinical Services ── -->
+  <section class="services-section-full" aria-labelledby="nursing-heading">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Nursing &amp; Clinical</span>
+        <h2 class="section-title" id="nursing-heading">Professional <em>Nursing Care</em> at Home</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-subtitle">Our qualified nurses, doctors and clinical professionals bring hospital-standard care directly to your loved one's bedside.</p>
+      </div>
+      <div class="full-grid" style="margin-top:3rem;">
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">👩‍⚕️</span>
+          <h3>Qualified Nurses, Ayas &amp; GDA / Attendants</h3>
+          <p>Certified, experienced nursing professionals assigned to provide attentive, round-the-clock bedside care tailored to your patient's specific medical condition. All staff are background-verified with transparent profiles.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d2">
+          <span class="card-icon">🤝</span>
+          <h3>Patient Attendants</h3>
+          <p>Trained personal attendants offering compassionate support for daily activities including feeding, mobility, hygiene, and emotional companionship — ensuring your loved one never feels alone.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d3">
+          <span class="card-icon">🧑‍🦱</span>
+          <h3>Ayas / GDA (General Duty Attendant)</h3>
+          <p>Skilled GDAs handle daily patient care tasks under nursing supervision — grooming, feeding assistance, basic vitals monitoring and patient comfort management throughout the day.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">🏠</span>
+          <h3>ICU Development at Home</h3>
+          <p>We set up a full intensive care unit environment in your home — ventilators, monitors, suction machines and round-the-clock trained nursing supervision for critically ill patients.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d2">
+          <span class="card-icon">🛁</span>
+          <h3>Body Care</h3>
+          <p>Complete hygienic body care including sponge baths, oral hygiene, pressure sore prevention, skin care and regular patient repositioning to prevent bedsores during prolonged recovery.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d3">
+          <span class="card-icon">🧘</span>
+          <h3>Yoga &amp; Healing</h3>
+          <p>Therapeutic yoga sessions and holistic healing practices tailored to recovery needs. Gentle stretching, breathing exercises and mind-body techniques to support faster recuperation.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">👨‍⚕️</span>
+          <h3>Doctor's Visit at Home</h3>
+          <p>Experienced registered doctors visit your home for medical consultations, follow-up check-ups, prescription management and clinical assessments — no need to strain for hospital trips.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d2">
+          <span class="card-icon">🦴</span>
+          <h3>Physiotherapy — All Specialities</h3>
+          <p>Certified physiotherapists for orthopaedic, neurological, cardiac, paediatric and geriatric rehabilitation — personalised exercise programs and manual therapy for complete recovery.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d3">
+          <span class="card-icon">💉</span>
+          <h3>Medications &amp; Injections (IV, IM, SC)</h3>
+          <p>Safe, precise administration of intravenous, intramuscular and subcutaneous medications and drips. Specialised experience with IVF injections requiring delicate, gentle technique.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">🩹</span>
+          <h3>Dressing &amp; Wound Care</h3>
+          <p>Professional sterile wound dressing, post-surgical wound management and chronic wound care. Our nurses follow clinical protocols to prevent infection and promote optimal healing.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d2">
+          <span class="card-icon">🦵</span>
+          <h3>Plasters</h3>
+          <p>Expert application, management and removal of plaster casts for fractures and orthopaedic conditions, carried out with professional care and clinical oversight.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d3">
+          <span class="card-icon">🔧</span>
+          <h3>Enema</h3>
+          <p>Medically administered enema procedures for constipation management, bowel preparation and clinical indications — performed with full dignity and professional clinical technique.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">🫁</span>
+          <h3>Tracheostomy Tube Care</h3>
+          <p>Specialised tracheostomy care including tube suctioning, inner cannula cleaning, stoma dressing and airway management by nurses trained in critical care procedures.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d2">
+          <span class="card-icon">🍽️</span>
+          <h3>PEG Feeding</h3>
+          <p>Percutaneous endoscopic gastrostomy tube feeding with accurate nutritional delivery, site care, tube patency maintenance and clinical monitoring for patients unable to eat orally.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d3">
+          <span class="card-icon">🧪</span>
+          <h3>Ryles Tube Insertion</h3>
+          <p>Nasogastric tube insertion, placement verification and ongoing care management for patients requiring tube feeding or gastric decompression under clinical supervision.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">🫀</span>
+          <h3>Foley's Catheterisation</h3>
+          <p>Sterile urinary catheter insertion and comprehensive ongoing catheter care management by skilled nurses — preventing infection and maintaining patient comfort and dignity.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d2">
+          <span class="card-icon">💧</span>
+          <h3>Parental Nutrition</h3>
+          <p>Intravenous parenteral nutritional support for patients unable to absorb nutrients orally — administered with clinical precision by our trained nursing team at home.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d3">
+          <span class="card-icon">👴</span>
+          <h3>Senior Citizen Care</h3>
+          <p>Comprehensive elderly care services: gentle sponge baths, personal grooming, diaper change assistance, walking support and safety monitoring — preserving independence and dignity.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">🏥</span>
+          <h3>Hospitalisation Assistance</h3>
+          <p>A dedicated attendant during hospital stays to coordinate care, communicate with medical teams, provide family updates and ensure round-the-clock patient comfort and advocacy.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d2">
+          <span class="card-icon">❤️</span>
+          <h3>ECG (Electrocardiogram)</h3>
+          <p>12-lead electrocardiogram recordings performed at home using professional-grade equipment, with results shared promptly with your treating cardiologist for evaluation.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d3">
+          <span class="card-icon">💊</span>
+          <h3>Medicine Home Delivery</h3>
+          <p>Timely delivery of prescribed medications directly to your doorstep — ensuring uninterrupted treatment schedules without the difficulty of pharmacy visits during recovery.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">🩸</span>
+          <h3>Blood Transfusion</h3>
+          <p>Supervised blood transfusion services at home with continuous vital signs monitoring, reaction surveillance and emergency preparedness by our clinical nursing team.</p>
+        </div>
+        <div class="service-card-full reveal reveal-d2">
+          <span class="card-icon">🔬</span>
+          <h3>Blood Sample Collection</h3>
+          <p>Home-visit phlebotomy for all laboratory tests — quick, comfortable and hygienic sample collection with proper cold-chain handling for accurate test results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 2: Medical Equipment ── -->
+  <section class="services-section-full" style="background:var(--white);" aria-labelledby="equip-heading">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Medical &amp; Surgical Equipment</span>
+        <h2 class="section-title" id="equip-heading">Clinical Equipment, <em>Delivered &amp; Set Up</em></h2>
+        <div class="divider divider-center"></div>
+        <p class="section-subtitle">All equipment is available on rental or provided by our care team — hospital-grade, regularly sanitised and properly maintained.</p>
+      </div>
+      <div class="full-grid" style="margin-top:3rem;">
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">🛏️</span>
+          <h3>Fowler Bed (Hospital Bed)</h3>
+          <p>Adjustable hospital-grade Fowler beds with backrest elevation and height control — ideal for post-surgery, respiratory and long-term recovery patients at home.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d2">
+          <span class="card-icon">♿</span>
+          <h3>Wheel Chair</h3>
+          <p>Comfortable, durable wheelchairs for safe indoor and outdoor mobility — lightweight models available for easy transport and daily use.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d3">
+          <span class="card-icon">🚶</span>
+          <h3>Walking Sticks / Crutches</h3>
+          <p>Sturdy adjustable walking aids for safe, confident movement during rehabilitation — available in standard, folding and elbow crutch varieties.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">🚽</span>
+          <h3>Commode Chairs</h3>
+          <p>Hygienic, padded commode chairs for patients with limited mobility — maintaining dignity and independence in personal care routines.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d2">
+          <span class="card-icon">🫁</span>
+          <h3>Pulse Oximeter</h3>
+          <p>Clinical-grade pulse oximeters for continuous blood oxygen saturation and heart rate monitoring — essential for respiratory and cardiac patients.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d3">
+          <span class="card-icon">💨</span>
+          <h3>Nebulizer / Steamer</h3>
+          <p>Respiratory therapy nebulizers for asthma, COPD, bronchitis and post-COVID lung recovery — delivering medication directly to the airways.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">🌬️</span>
+          <h3>BIPAP Machine</h3>
+          <p>Bilevel positive airway pressure machines for sleep apnea, respiratory failure and overnight breathing support — set up and managed by our team.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d2">
+          <span class="card-icon">🔌</span>
+          <h3>Ventilator</h3>
+          <p>ICU-grade mechanical ventilators for patients requiring full respiratory support at home, managed continuously by our trained critical care nurses.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d3">
+          <span class="card-icon">🫧</span>
+          <h3>Oxygen Cylinder</h3>
+          <p>Medical-grade oxygen cylinders supplied with regulators, flow meters and proper safety guidelines — ensuring uninterrupted oxygen supply at home.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">🧹</span>
+          <h3>Suction Machine</h3>
+          <p>Portable suction machines for secretion clearance in tracheostomy patients, post-operative cases and patients with swallowing difficulties.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d2">
+          <span class="card-icon">🏥</span>
+          <h3>IV Stands &amp; IV Cannulas</h3>
+          <p>Sterile intravenous stands and cannulas for home IV therapy — enabling drips, medications and blood products to be administered comfortably at home.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d3">
+          <span class="card-icon">🩺</span>
+          <h3>BP Apparatus (Sphygmomanometer)</h3>
+          <p>Accurate digital and aneroid blood pressure monitors for regular home BP tracking — critical for hypertension and post-cardiac patients.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">🩸</span>
+          <h3>Glucometer</h3>
+          <p>Calibrated blood glucose testing devices for diabetes management — providing accurate readings to guide insulin dosing and dietary decisions.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d2">
+          <span class="card-icon">🔬</span>
+          <h3>Laparoscopic / Hysteroscopy Instruments</h3>
+          <p>Specialised minimally invasive surgical instruments and accessories available for clinical and gynaecological procedures conducted by visiting specialists.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d3">
+          <span class="card-icon">❤️</span>
+          <h3>ECG Machine</h3>
+          <p>Portable 12-lead ECG machines for cardiac monitoring at home — enabling cardiologist-level recordings without hospital visits.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+        <div class="service-card-full reveal reveal-d1">
+          <span class="card-icon">⚖️</span>
+          <h3>Weighing Machine</h3>
+          <p>Medical-grade weighing scales for accurate patient weight monitoring — essential for nutritional planning, medication dosing and fluid management.</p>
+          <span class="equip-note">🔄 Available on rental / provided by our team</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Service Packages ── -->
+  <section class="packages-section" aria-labelledby="packages-heading">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Care Packages</span>
+        <h2 class="section-title" id="packages-heading" style="color:var(--white)">Choose Your <em style="color:var(--accent)">Care Package</em></h2>
+        <p class="section-subtitle" style="color:rgba(255,255,255,0.6); margin:0 auto;">All packages include transparent pricing with no hidden charges. Contact us to customise any package to your needs.</p>
+      </div>
+      <div class="packages-grid">
+        <!-- Basic -->
+        <div class="pkg-card reveal reveal-d1">
+          <div class="pkg-name">Basic</div>
+          <div class="pkg-title">Essential Care</div>
+          <div class="pkg-features">
+            <div class="pkg-feature"><span class="check">✅</span>Qualified Nurse / GDA (8hrs/day)</div>
+            <div class="pkg-feature"><span class="check">✅</span>Vital Signs Monitoring</div>
+            <div class="pkg-feature"><span class="check">✅</span>Medication Administration</div>
+            <div class="pkg-feature"><span class="check">✅</span>Basic Wound Dressing</div>
+            <div class="pkg-feature"><span class="check">✅</span>Sponge Bath &amp; Grooming</div>
+            <div class="pkg-feature"><span class="cross">✗</span>24/7 Nurse Coverage</div>
+            <div class="pkg-feature"><span class="cross">✗</span>Doctor Home Visit</div>
+            <div class="pkg-feature"><span class="cross">✗</span>Physiotherapy</div>
+            <div class="pkg-feature"><span class="cross">✗</span>Medical Equipment Rental</div>
+            <div class="pkg-feature"><span class="cross">✗</span>ICU at Home Setup</div>
+          </div>
+          <a href="contact.html" class="pkg-cta pkg-cta-outline">Book Basic Package</a>
+        </div>
+        <!-- Standard -->
+        <div class="pkg-card featured reveal reveal-d2">
+          <div class="pkg-name">Standard</div>
+          <div class="pkg-title">Comprehensive Care</div>
+          <div class="pkg-features">
+            <div class="pkg-feature"><span class="check">✅</span>Qualified Nurse (12hrs/day)</div>
+            <div class="pkg-feature"><span class="check">✅</span>Vital Signs Monitoring</div>
+            <div class="pkg-feature"><span class="check">✅</span>All Medication &amp; IV Administration</div>
+            <div class="pkg-feature"><span class="check">✅</span>Advanced Wound Dressing</div>
+            <div class="pkg-feature"><span class="check">✅</span>Full Personal Care</div>
+            <div class="pkg-feature"><span class="check">✅</span>Doctor Home Visit (2x/week)</div>
+            <div class="pkg-feature"><span class="check">✅</span>Basic Physiotherapy</div>
+            <div class="pkg-feature"><span class="check">✅</span>BP / Glucometer / Oximeter</div>
+            <div class="pkg-feature"><span class="cross">✗</span>24/7 Nurse Coverage</div>
+            <div class="pkg-feature"><span class="cross">✗</span>ICU at Home Setup</div>
+          </div>
+          <a href="contact.html" class="pkg-cta pkg-cta-gold">Book Standard Package</a>
+        </div>
+        <!-- Premium -->
+        <div class="pkg-card reveal reveal-d3">
+          <div class="pkg-name">Premium</div>
+          <div class="pkg-title">Complete Home ICU</div>
+          <div class="pkg-features">
+            <div class="pkg-feature"><span class="check">✅</span>Qualified Nurse (24/7 Coverage)</div>
+            <div class="pkg-feature"><span class="check">✅</span>Continuous Monitoring</div>
+            <div class="pkg-feature"><span class="check">✅</span>All Clinical Procedures</div>
+            <div class="pkg-feature"><span class="check">✅</span>Specialised Wound Care</div>
+            <div class="pkg-feature"><span class="check">✅</span>Full Personal Care</div>
+            <div class="pkg-feature"><span class="check">✅</span>Daily Doctor Visits</div>
+            <div class="pkg-feature"><span class="check">✅</span>Full Physiotherapy Program</div>
+            <div class="pkg-feature"><span class="check">✅</span>All Equipment Included</div>
+            <div class="pkg-feature"><span class="check">✅</span>ICU at Home Setup</div>
+            <div class="pkg-feature"><span class="check">✅</span>Oxygen &amp; Ventilator Support</div>
+          </div>
+          <a href="contact.html" class="pkg-cta pkg-cta-outline">Book Premium Package</a>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:2.5rem; color:rgba(255,255,255,0.45); font-size:0.85rem;">
+        All packages are fully customisable. Call <a href="tel:+919021854070" style="color:var(--accent)">090218 54070</a> to discuss your exact requirements.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--surface); padding:5rem 0; text-align:center;">
+    <div class="container">
+      <span class="section-label">Ready to Begin?</span>
+      <h2 class="section-title reveal">Need Care <em>Today?</em></h2>
+      <p class="section-subtitle reveal reveal-d1" style="margin:0 auto 2rem;">Our team is standing by 24/7. One call and we'll arrange the right care for your loved one.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;" class="reveal reveal-d2">
+        <a href="contact.html" class="btn btn-primary">Book a Service</a>
+        <a href="tel:+919021854070" class="btn btn-outline-dark">📞 090218 54070</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" aria-hidden="true">KNB</div>
+        <div class="footer-brand-name">Kolhapur Nursing Bureau</div>
+        <div class="footer-tagline">"Hospital-Grade Care, Delivered Home"</div>
+        <p class="footer-desc">Bringing every hospital service to your doorstep in Kolhapur and nearby areas. Trusted by 200+ families.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Top Services</h4>
+        <ul>
+          <li><a href="services.html">Nursing Staff</a></li>
+          <li><a href="services.html">Physiotherapy</a></li>
+          <li><a href="services.html">ICU at Home</a></li>
+          <li><a href="services.html">Senior Care</a></li>
+          <li><a href="services.html">Medical Equipment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-info">
+        <h4>Contact Info</h4>
+        <p><strong>📍</strong> Near Metro Hospital Shahupuri, 2nd Ln, Bagal Chowk, Kolhapur, MH 416001</p>
+        <p class="footer-phone"><a href="tel:+919021854070">📞 090218 54070</a></p>
+        <p><strong>🕐</strong> Open 24/7 — 365 Days a Year</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span>Kolhapur Nursing Bureau</span>. All rights reserved.</p>
+      <p>Made with ❤️ in Kolhapur</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919021854070" class="float-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<a href="tel:+919021854070" class="float-call" aria-label="Call now">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+  <span>Call Now</span>
+</a>
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+
+<script>
+/* === SHARED JS === */
+/* ============================================================
+   KOLHAPUR NURSING BUREAU — SHARED JAVASCRIPT
+   ============================================================ */
+
+/* ── Custom Cursor ── */
+(function initCursor() {
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
+  if (window.innerWidth <= 768) return;
+
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`;
+  });
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%,-50%)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button, .card, [role="button"]').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width = '52px';
+      ring.style.height = '52px';
+      ring.style.borderColor = 'var(--accent-light)';
+      dot.style.background = 'var(--accent)';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+      ring.style.borderColor = 'var(--accent)';
+      dot.style.background = 'var(--primary)';
+    });
+  });
+})();
+
+/* ── Navbar Scroll Behavior ── */
+(function initNavbar() {
+  const navbar = document.querySelector('.navbar');
+  if (!navbar) return;
+  const isLight = navbar.dataset.theme === 'light';
+
+  function updateNav() {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+      if (isLight) navbar.classList.remove('light');
+    } else {
+      navbar.classList.remove('scrolled');
+      if (isLight) navbar.classList.add('light');
+    }
+  }
+  updateNav();
+  window.addEventListener('scroll', updateNav, { passive: true });
+
+  /* Active link */
+  const path = window.location.pathname;
+  document.querySelectorAll('.nav-links a, .nav-overlay a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href === 'index.html' && (path.endsWith('/') || path.endsWith('index.html'))) {
+      a.classList.add('active');
+    } else if (href !== 'index.html' && path.includes(href.replace('.html', ''))) {
+      a.classList.add('active');
+    }
+  });
+})();
+
+/* ── Mobile Hamburger ── */
+(function initHamburger() {
+  const btn = document.getElementById('hamburger');
+  const overlay = document.getElementById('nav-overlay');
+  if (!btn || !overlay) return;
+
+  btn.addEventListener('click', () => {
+    const open = btn.classList.toggle('open');
+    if (open) {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    } else {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+
+  overlay.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      btn.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+
+/* ── Scroll Reveal (IntersectionObserver) ── */
+(function initReveal() {
+  const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  if (!els.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  els.forEach(el => observer.observe(el));
+})();
+
+/* ── Back To Top ── */
+(function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+
+/* ── Card 3D Tilt ── */
+(function initTilt() {
+  if (window.innerWidth <= 768) return;
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      card.style.transform = `translateY(-6px) rotateX(${-dy * 4}deg) rotateY(${dx * 4}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+})();
+
+/* ── Count-Up Animation ── */
+function countUp(el, target, duration = 1800) {
+  const start = performance.now();
+  const isDecimal = String(target).includes('.');
+  function update(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    const val = eased * target;
+    el.textContent = isDecimal ? val.toFixed(1) : Math.round(val).toLocaleString();
+    if (t < 1) requestAnimationFrame(update);
+    else el.textContent = isDecimal ? target : target.toLocaleString();
+  }
+  requestAnimationFrame(update);
+}
+
+function initCountUp() {
+  const counters = document.querySelectorAll('[data-count]');
+  if (!counters.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseFloat(el.dataset.count);
+        countUp(el, target);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => observer.observe(el));
+}
+initCountUp();
+
+/* ── Page Load Fade In ── */
+(function initPageLoad() {
+  document.querySelectorAll('.hero-animate').forEach((el, i) => {
+    el.style.animationDelay = `${i * 0.15}s`;
+    el.classList.add('hero-loaded');
+  });
+})();
+
+/* ── WhatsApp Quick-Book Modal ── */
+(function initQuickBook() {
+  const WA_NUMBER = '919021854070';
+
+  const SERVICES = [
+    'Qualified Nurses / Ayas / GDA / Attendants',
+    'Patient Attendants',
+    'ICU Development at Home',
+    'Body Care',
+    'Yoga & Healing',
+    "Doctor's Visit at Home",
+    'Physiotherapy — All Specialities',
+    'Medications & Injections (IV, IM, SC, IVF)',
+    'Wound Dressing',
+    'Plasters',
+    'Enema',
+    'Tracheostomy Tube Care',
+    'PEG Feeding',
+    "Ryle's Tube Insertion",
+    "Foley's Catheterisation",
+    'Parental Nutrition',
+    'Senior Citizen Care',
+    'Hospitalisation Assistance',
+    'ECG at Home',
+    'Medicine Home Delivery',
+    'Blood Transfusion',
+    'Blood Sample Collection',
+    'Fowler Bed Rental',
+    'Wheel Chair Rental',
+    'Walking Sticks / Crutches',
+    'Commode Chair Rental',
+    'Medical Equipment Rental',
+    'Other / Multiple Services',
+  ];
+
+  /* ─ Inject modal HTML ─ */
+  const overlay = document.createElement('div');
+  overlay.className = 'qb-overlay';
+  overlay.id = 'qb-overlay';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', 'Quick Book via WhatsApp');
+  overlay.innerHTML = `
+    <div class="qb-sheet" id="qb-sheet">
+      <div class="qb-handle"></div>
+      <button class="qb-close" id="qb-close" aria-label="Go back">&#8592; Back</button>
+      <div class="qb-title">Book a Service via WhatsApp</div>
+      <p class="qb-sub">Fill in your details — we'll receive your request instantly on WhatsApp and call you back within minutes.</p>
+      <form class="qb-form" id="qb-form" novalidate>
+        <div class="qb-field">
+          <label for="qb-name">Your Name *</label>
+          <input type="text" id="qb-name" placeholder="e.g. Rahul Patil" autocomplete="name" required />
+        </div>
+        <div class="qb-field">
+          <label for="qb-phone">Phone Number *</label>
+          <input type="tel" id="qb-phone" placeholder="e.g. 9876543210" autocomplete="tel" required />
+        </div>
+        <div class="qb-field">
+          <label for="qb-service">Service Needed *</label>
+          <select id="qb-service" required>
+            <option value="" disabled selected>Select a service…</option>
+            ${SERVICES.map(s => `<option>${s}</option>`).join('')}
+          </select>
+        </div>
+        <button type="submit" class="qb-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Send via WhatsApp
+        </button>
+        <p class="qb-note">No app needed — opens WhatsApp Web or your WhatsApp app automatically.</p>
+      </form>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  /* ─ Wrap existing float-wa in a clickable trigger ─ */
+  const floatWa = document.querySelector('.float-wa');
+  if (floatWa) {
+    floatWa.addEventListener('click', (e) => {
+      e.preventDefault();
+      openQB();
+    });
+    /* Add tooltip label */
+    const label = document.createElement('span');
+    label.className = 'qb-trigger-label';
+    label.textContent = 'Quick Book';
+    floatWa.appendChild(label);
+  }
+
+  /* ─ Open / close helpers ─ */
+  function openQB() {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('qb-name')?.focus(), 350);
+  }
+  function closeQB() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('qb-close').addEventListener('click', closeQB);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeQB(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeQB(); });
+
+  /* ─ Form submit → WhatsApp ─ */
+  document.getElementById('qb-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name    = document.getElementById('qb-name').value.trim();
+    const phone   = document.getElementById('qb-phone').value.trim();
+    const service = document.getElementById('qb-service').value;
+
+    if (!name || !phone || !service) {
+      ['qb-name','qb-phone','qb-service'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.style.borderColor = '#e53e3e';
+          el.style.boxShadow = '0 0 0 3px rgba(229,62,62,0.15)';
+          setTimeout(() => { el.style.borderColor = ''; el.style.boxShadow = ''; }, 2200);
+        }
+      });
+      return;
+    }
+
+    let msg = `🏥 *Quick Booking — Kolhapur Nursing Bureau*\n\n`;
+    msg += `👤 *Name:* ${name}\n`;
+    msg += `📞 *Phone:* ${phone}\n`;
+    msg += `🩺 *Service Needed:* ${service}\n`;
+    msg += `\n_Sent via KNB website quick-book widget_`;
+
+    const waURL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+    const btn = e.target.querySelector('.qb-btn');
+    btn.textContent = 'Opening WhatsApp…';
+    btn.disabled = true;
+
+    window.open(waURL, '_blank', 'noopener');
+
+    setTimeout(() => {
+      closeQB();
+      btn.innerHTML = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Send via WhatsApp`;
+      btn.disabled = false;
+      document.getElementById('qb-form').reset();
+    }, 800);
+  });
+})();
+
+</script>
+</body>
+</html>
